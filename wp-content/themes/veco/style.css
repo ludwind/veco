@@ -1,0 +1,58 @@
+/*
+Theme Name: Vecocars
+Theme URI: http://vecocars.com
+Author: lud
+Author URI: https://vecocars.com/
+Description: Diseño personalizado para veco
+Version: 1.0
+License: na
+License URI: na
+*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	border: 0;
+	font-family: inherit;
+	font-size: 100%;
+	font-style: inherit;
+	font-weight: inherit;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+
+html {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	font-size: 62.5%;
+	overflow-y: scroll;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+*,
+*:before,
+*:after {
+	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	box-sizing: inherit;
+}
+
+body {
+}
+
+/************** Estilos Veco *************/
+
+
+/** header **/
+.veco{}
+	.veco{} .botonazul{}
+	.veco header{width: 100%; background:#161616;}
+		.veco header main{width: 100%; opacity:0.85; max-width: 1366px;margin:0 auto;min-height: 600px;
+				background:linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)), url('img/header/background-carros3.gif') no-repeat center center fixed;
+				-webkit-background-size: cover; -moz-background-size: cover;-o-background-size: cover;background-size: cover;}
+		.veco header main .header{}
+			.veco header main .header aside{padding:23px 0 0 28px;}
+		
+
