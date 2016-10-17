@@ -9,10 +9,30 @@
 	<meta name="viewport" content="width=device-width">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
 	<!--Fonts Veco-->
 	<link href="<?php echo site_url(); ?>/fonts/fonts.css" rel="stylesheet" type="text/css">
 	<!--[if lt IE 9]>
 	<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/html5.js"></script>
+	<!--menuswipe-->	
+	<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/menuswipe.css" type="text/css" media="all">
+	<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/menuswipe-font-awesome.min.css" type="text/css" media="all">
+
+    <!-- Fotorama 
+	<link  href="<?php //echo esc_url( get_template_directory_uri() ); ?>/css/fotorama.css" rel="stylesheet">
+	<script src="<?php //echo esc_url( get_template_directory_uri() ); ?>/js/fotorama.js"></script> -->
+	<!--Carousel marcas-->
+	<script type="text/javascript" src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/jquery.min.js"></script>
+	<script type="text/javascript" src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/carousel/script.js" charset="utf-8"></script>
+	<script type="text/javascript" src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/carousel/example5.js" charset="utf-8"></script>
+	<script type="text/javascript" src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/carousel/modernizr.mediaqueries.transforms3d.js"></script>
+	<script type="text/javascript" src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/carousel/responsive-hub.js"></script>
+	<script type="text/javascript" src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/carousel/jquery.silver_track.js" charset="utf-8"></script>
+	<script type="text/javascript" src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/carousel/jquery.silver_track.navigator.js" charset="utf-8"></script>
+	<script type="text/javascript" src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/carousel/jquery.silver_track.responsive_hub_connector.js" charset="utf-8"></script>
+	<script type="text/javascript" src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/carousel/jquery.silver_track.css3_animation.js" charset="utf-8"></script>
+  
+  
 	<![endif]-->
 	<?php wp_head(); ?>
 </head>
@@ -20,99 +40,91 @@
 <body <?php body_class(); ?>>
 
 <div class="veco">
-	<header>
-			<main>
-				<div class="header">
-					<aside><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/header/veco-logo.png"/></aside>
-					<section>
-						<div class="outerbvender"><a href="" class="botonazul">vender</a></div>
-						<div class="micuentab">
-							<?php if ( is_user_logged_in() ) { ?>
-								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/header/no-login-user.png"/>
-							<?php } else { ?>
-								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/header/no-login-user.png" class="logout"/>
-							<?php } ?>
-						</div>
-						<div class="menuc">
-							<button class="c-hamburger c-hamburger--htx">
-								<span>toggle menu</span>
-							</button>
-						</div>
-					</section>
-					<div class="search-home">
-						<h1>Compra tu carro</h1>
-						<form action="" method="post">
-							<div class="tipocompra">
-								<input type="radio" name="tipocompra" value="Todos" id="tipocompratodos" checked><label for="tipocompratodos">Todos</label>
-								<input type="radio" name="tipocompra" value="Nuevos" id="tipocompranuevos"><label for="tipocompranuevos">Nuevos</label>
-								<input type="radio" name="tipocompra" value="Usados" id="tipocomprausados"><label for="tipocomprausados">Usados</label>
-							</div>
-							<div class="columnaizq">
-								<label>Marca</label>
-								<select name="marca">
-									<option>...</option>
-								</select>
-								
-								<label>Precio: mínimo</label>
-								<select name="preciominimo">
-									<option>...</option>
-								</select>
-								
-								<label>Años: mínimo</label>
-								<select name="aniosminimo">
-									<option>...</option>
-								</select>
-								
-								<label>Kilometraje: desde</label>
-								<select name="kilometrajedesde">
-									<option>...</option>
-								</select>					
-							</div>
-							<div class="columnadrch">
-								<label>Modelo</label>
-								<select name="modelo">
-									<option>...</option>
-								</select>
-								
-								<label>Precio: máximo</label>
-								<select name="preciomaximo">
-									<option>...</option>
-								</select>
-								
-								<label>Años: máximo</label>
-								<select name="preciomaximo">
-									<option>...</option>
-								</select>
-								
-								<label>Kilometraje: hasta</label>
-								<select name="kilometrajehasta">
-									<option>...</option>
-								</select>								
-							</div>
-							<div class="masopciones">
-								<button type="submit" name="submit" value="Buscar"/>Buscar</button>
-								<a href="#masopciones">Más opciones</a>								
-							</div>
-						</form>
+			
+	<!--menu izquierdo-->
+    <div id="cb-sidebar-modal" class="clearfix">
+       <div class="clearfix cb-sidebar-menu">
+          <a href="<?php echo site_url(); ?>/#" id="cb-sidebar-close" class="cb-link">X</a>
+		  	<!--contenido menu-->
+          <nav class="menup">
+			<h1>Menu</h1>
+			<ul>
+				<li><a href="<?php echo site_url(); ?>/">Inicio</a></li>
+				<li><a href="<?php echo site_url(); ?>/">Mi cuenta</a></li>
+				<li><a href="<?php echo site_url(); ?>/">Buscar</a></li>
+				<li><a href="<?php echo site_url(); ?>/">Tips</a></li>
+				<li><a href="<?php echo site_url(); ?>/">Crear anuncio</a></li>
+			</ul>
+		  </nav>
+      </div>
+    </div>
+
+
+	<div id="cb-container" class="clearfix">
+      <nav id="cb-navigation" role="navigation" class="clearfix">
+        <div class="cb-menu">
+           <div class="cb-left cb-column">
+             <div id="cb-logo">
+                <a href="<?php echo site_url(); ?>" class="cb-logo-img">
+					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/header/veco-logo.png"/>
+				</a>
+			 </div>
+			</div>
+         <div class="cb-middle cb-column"></div>
+            <div class="cb-right cb-column linkstop">
+				
+				<section>
+					<div class="outerbvender"><a href="" class="botonazul">vender</a></div>
+					<div class="micuentab">
+						<?php if ( is_user_logged_in() ) { ?>
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/header/no-login-user.png"/>
+						<?php } else { ?>
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/header/no-login-user.png" class="logout"/>
+						<?php } ?>
 					</div>
-				</div>
-			</main>
-	</header>
+				</section>
+				
+               <div class="cb-nav">
+                 <a href="#" id="cb-sidebar-open" class="cb-link">
+					<div class="menuamburgesa">
+						<aside></aside>
+						<aside></aside>
+						<aside></aside>
+					</div>
+				</a>
+            </div>
+        </div>
+       </div>
+     </nav>
+				
+	<div id="cb-content" class="clearfix">
+
+
+<!--menuswipe-->
+<script type="text/javascript" src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/menuswipe-cb-scripts.js"></script>
+
+<!----- boton scrooll top ---->
+<script type="text/javascript">
+	$(document).ready(function(){
 	
-<script>
-//////////// Menu Hamburgesa Icono
-  (function() {
-    "use strict";
-    var toggles = document.querySelectorAll(".c-hamburger");
-    for (var i = toggles.length - 1; i >= 0; i--) {
-      var toggle = toggles[i];
-      toggleHandler(toggle);
-    };
-    function toggleHandler(toggle) {
-      toggle.addEventListener( "click", function(e) {
-        e.preventDefault();
-        (this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
-      });
-    }
-  })();
+	//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 400) {
+			$('.scrollToTop').fadeIn();
+			$('#cb-navigation').addClass('menuestaticotop');
+			$('.menuestaticotop').fadeIn();
+		} else {
+			$('.scrollToTop').fadeOut();
+			$('#cb-navigation').removeClass('menuestaticotop');
+		}
+	});
+	
+	//Click event to scroll to top
+	$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+	
+});
 </script>
+

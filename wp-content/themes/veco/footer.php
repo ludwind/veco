@@ -10,10 +10,23 @@
  */
 ?>
 
+<footer>
+    ™ 2017 Veco. 
+</footer>
 
-</div><!-- .site -->
 
 <?php wp_footer(); ?>
+
+
+
+</div><!-- .site -->
+			</div> <!-- end #cb-container -->
+
+		</div> <!-- end #cb-outer-container -->
+
+
+<!----- boton scrooll top ---->
+<a href="#" class="scrollToTop"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/arrowup.png"></a>
 
 </body>
 </html>
